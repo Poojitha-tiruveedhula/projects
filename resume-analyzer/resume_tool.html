@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personalized Resume Analyzer</title>
+  <link rel="stylesheet" href="design.css" />
+</head>
+<body>
+
+  <!-- Dark Mode Toggle -->
+  <div class="toggle">
+    <label>
+      <input type="checkbox" id="darkSwitch" onchange="toggleDarkMode()" />
+      🌙 Dark Mode
+    </label>
+  </div>
+
+  <div class="container">
+
+    <!-- Page 1: Upload + Input -->
+    <div id="page1" class="page">
+      <h1>📄 Personalized Resume Analyzer</h1>
+
+      <input type="file" id="pdfUpload" accept="application/pdf" />
+
+      <textarea id="resumeText" rows="10" placeholder="Or paste your resume text here..."></textarea>
+
+      <select id="jobRole">
+        <option value="">-- Select Job Role --</option>
+        <option value="web developer">💻 Web Developer</option>
+        <option value="java developer">☕ Java Developer</option>
+        <option value="data scientist">📊 Data Scientist</option>
+      </select>
+
+      <button id="analyzeBtn">✨ Analyze Resume</button>
+    </div>
+
+    <!-- Page 2: Result + Chart -->
+    <div id="page2" class="page" style="display:none;">
+      <h2>📊 Analysis Result</h2>
+      <div id="result" class="result"></div>
+      <canvas id="scoreChart" width="400" height="200" style="margin-top: 20px;"></canvas>
+      <br />
+      <button id="backBtn">⬅️ Back</button>
+    </div>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="analyzer.js"></script>
+</body>
+</html>

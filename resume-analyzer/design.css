@@ -1,0 +1,121 @@
+:root {
+  --primary: #6a1b9a;
+  --accent: #00acc1;
+  --bg: rgba(255, 255, 255, 0.2);
+  --text: #222;
+  --result-bg: rgba(255, 255, 255, 0.1);
+  --blur-strength: 15px;
+}
+
+body.dark {
+  --bg: rgba(20, 20, 20, 0.4);
+  --text: #eee;
+  --result-bg: rgba(255, 255, 255, 0.05);
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(-45deg, #6a1b9a, #00acc1, #26c6da, #8e24aa);
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  backdrop-filter: blur(var(--blur-strength));
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(var(--blur-strength));
+  z-index: -1;
+}
+
+.container {
+  max-width: 720px;
+  margin: 60px auto;
+  background: var(--bg);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  animation: fade-in 1s ease;
+  backdrop-filter: blur(var(--blur-strength));
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+textarea, select, button, input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+textarea:focus, select:focus, input[type="file"]:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--primary);
+  border-color: var(--accent);
+}
+
+button {
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+}
+
+.result {
+  margin-top: 30px;
+  padding: 20px;
+  background: var(--result-bg);
+  border-left: 6px solid var(--accent);
+  border-radius: 12px;
+  animation: fade-in 0.8s ease;
+}
+
+.good { color: #2e7d32; font-weight: bold; }
+.average { color: #f57c00; font-weight: bold; }
+.poor { color: #c62828; font-weight: bold; }
+
+.toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/* Optionally add emoji icons to role options */
+select option[value="web developer"]::before { content: "💻 "; }
+select option[value="java developer"]::before { content: "☕ "; }
+select option[value="data scientist"]::before { content: "📊 "; }
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

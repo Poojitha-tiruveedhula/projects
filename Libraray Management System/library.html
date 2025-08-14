@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="library-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-book"></i> Library Management System</h1>
+    <p>Your complete library control panel</p>
+</header>
+
+<nav>
+    <a href="#"><i class="fas fa-home"></i> Dashboard</a>
+    <a href="#"><i class="fas fa-book-open"></i> Books</a>
+    <a href="#"><i class="fas fa-users"></i> Members</a>
+    <a href="#"><i class="fas fa-exchange-alt"></i> Borrowing</a>
+    <a href="#"><i class="fas fa-chart-line"></i> Reports</a>
+    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+</nav>
+
+<div class="top-bar">
+    <div class="search-bar">
+        <input type="text" placeholder="Search books, members...">
+        <button><i class="fas fa-search"></i></button>
+    </div>
+    <div class="user-info">
+        <i class="fas fa-bell"></i> Admin
+    </div>
+</div>
+
+<section class="stats fade-in">
+    <div class="stat-card">
+        <h2>Total Books</h2>
+        <p class="number">12,847</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>Active Members</h2>
+        <p class="number">1,243</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>Borrowed Today</h2>
+        <p class="number">87</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>Overdue Books</h2>
+        <p class="number">54</p>
+    </div>
+</section>
+
+<section class="charts fade-in">
+    <div class="chart-container">
+        <h2>Monthly Borrows</h2>
+        <canvas id="borrowChart"></canvas>
+    </div>
+    <div class="chart-container">
+        <h2>Popular Categories</h2>
+        <canvas id="categoryChart"></canvas>
+    </div>
+</section>
+
+<section class="charts fade-in">
+    <div class="chart-container">
+        <h2>Member Growth</h2>
+        <canvas id="memberChart"></canvas>
+    </div>
+    <div class="chart-container">
+        <h2>Book Availability</h2>
+        <canvas id="availabilityChart"></canvas>
+    </div>
+</section>
+
+<section class="extra-content fade-in">
+    <h2>Recent Activities</h2>
+    <ul>
+        <li>
+            <i class="fas fa-book-reader"></i> <strong>John</strong> borrowed <em>"The Great Gatsby"</em> – 2 hrs ago
+            <span class="status borrowed">Borrowed</span>
+        </li>
+        <li>
+            <i class="fas fa-undo"></i> <strong>Mary</strong> returned <em>"1984"</em> – 5 hrs ago
+            <span class="status returned">Returned</span>
+        </li>
+        <li>
+            <i class="fas fa-user-plus"></i> <strong>Emma</strong> joined as a member – 1 day ago
+            <span class="status new-member">New Member</span>
+        </li>
+        <li>
+            <i class="fas fa-book-reader"></i> <strong>David</strong> borrowed <em>"Python Programming"</em> – 2 days ago
+            <span class="status borrowed">Borrowed</span>
+        </li>
+        <li>
+            <i class="fas fa-bookmark"></i> <strong>Alex</strong> reserved <em>"Data Structures"</em> – 3 hrs ago
+            <span class="status reserved">Reserved</span>
+        </li>
+        <li>
+            <i class="fas fa-sync-alt"></i> <strong>Sophia</strong> renewed <em>"Machine Learning Basics"</em> – 6 hrs ago
+            <span class="status renewed">Renewed</span>
+        </li>
+    </ul>
+</section>
+
+<footer>
+    <p>© 2025 Library Management System</p>
+</footer>
+
+<script src="library-script.js"></script>
+</body>
+</html>
